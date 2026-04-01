@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Login</title>
+  <link href="../css/login.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+ </head>
+ <body>
+  <div class="page-wrapper">
+   <div class="bg-orb bg-orb-1"></div>
+   <div class="bg-orb bg-orb-2"></div>
+   <div class="bg-orb bg-orb-3"></div>
+   <div class="grid-pattern"></div>
+   <div class="card-container">
+    <header class="brand-header fade-up">
+     <div class="brand-icon">
+      <svg viewbox="0 0 24 24">
+       <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
+      </svg>
+     </div>
+     <p class="brand-subtitle" id="subtitle-text">Hospital Management System</p>
+     <h1 class="brand-title" id="title-text">Sign In</h1>
+    </header>
+    <main class="reg-card" role="main">
+     <form id="regForm" novalidate method="post" onsubmit="handleLogin(event)">
+        
+    <!-- Email -->
+      <div class="form-row fade-up">
+        <label class="form-label" for="email">Email Address</label>
+       <div class="input-wrapper">
+        <span class="input-icon"><i data-lucide="mail"></i></span> 
+        <input class="form-input" type="email" id="email" name="email" placeholder="jane@hospital.com" autocomplete="email" required>
+       </div>
+       <div class="error-msg" id="emailError">
+        <i data-lucide="alert-circle"></i>
+        <span></span>
+       </div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-row fade-up">
+        <label class="form-label" for="password">Password</label>
+       <div class="input-wrapper">
+        <span class="input-icon"><i data-lucide="lock"></i></span> 
+        <input class="form-input" type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required> 
+        <button type="button" class="password-toggle" data-target="password" aria-label="Toggle password visibility">
+            <i data-lucide="eye"></i>
+        </button>
+       </div>
+       <div class="error-msg" id="passwordError">
+        <i data-lucide="alert-circle"></i>
+        <span></span>
+       </div>
+      </div>
+      
+      <button class="submit-btn fade-up" id="submitBtn"> <i data-lucide="log-in"></i> 
+        <span id="btn-text">Sign In</span> 
+      </button>
+     </form>
+     <p class="login-prompt fade-up" id="login-prompt">
+        <span id="login-prompt-text">Don't have an account?</span> 
+        <a href="./register.html" rel="noopener noreferrer">Sign up</a>
+    </p>
+    </main>
+   </div>
+  </div>
+  
+  <!-- Success Overlay -->
+  <div class="success-overlay" id="successOverlay" role="dialog" aria-modal="true" aria-label="Registration successful">
+   <div class="success-card">
+    <div class="success-check">
+     <i data-lucide="check"></i>
+    </div>
+    <h2 class="success-title">Welcome Back!</h2>
+    <p class="success-text">You have successfully signed in to the Hospital Management System.</p>
+   </div>
+  </div>
+  
+  <!-- Toast -->
+  <div class="toast toast-error" id="toast" role="alert">
+   <i data-lucide="alert-triangle"></i>
+   <span id="toastMsg"></span>
+  </div>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="../javascript/register.js"></script>
+</body>
+</html>

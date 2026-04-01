@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Admin Dashboard</title>
+  <link href="../../css/admin.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+ </head>
+ <body>
+  <div class="dashboard-wrapper">
+
+    <!-- Sidebar -->
+   <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+     <div class="sidebar-icon"><i data-lucide="activity"></i>
+     </div>
+     <div class="sidebar-title">
+      MediHub
+     </div>
+    </div>
+    <nav class="sidebar-nav">
+    <li class="nav-item">
+        <button class="nav-link active" data-page="dashboard"> 
+            <i data-lucide="layout-dashboard"></i> 
+            <span>Dashboard</span>
+        </button>
+    </li>
+    <li class="nav-item">
+        <button class="nav-link" data-page="doctors" id="doctor-page"> 
+            <i data-lucide="stethoscope"></i> 
+            <span>Manage Doctors</span> 
+        </button>
+    </li>
+    <li class="nav-item">
+        <button class="nav-link" data-page="patients" id="patient-page"> 
+            <i data-lucide="users"></i> 
+            <span>Manage Patients</span> 
+        </button>
+    </li>
+    <li class="nav-item">
+        <button class="nav-link" data-page="schedule" id="schedule-page"> 
+            <i data-lucide="calendar"></i> 
+            <span>Operation Schedule</span> 
+        </button>
+    </li>
+    <div class="nav-divider"></div>
+    <li class="nav-item">
+        <button class="logout-btn" id="logoutBtn"> 
+            <i data-lucide="log-out"></i> 
+            <span>Logout</span> 
+        </button>
+    </li>
+    </nav>
+   </aside>
+   
+   <!-- Main Content -->
+   <main class="main-content">
+        <header class="dashboard-header">
+            <h1 class="header-title">Welcome, Admin</h1>
+            <p class="header-subtitle">Here's an overview of your hospital management system</p>
+        </header>
+
+        <!-- Dashboard Section -->
+        <div class="dashboard-body">
+        <div class="content-section active" id="dashboard-section">
+        <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon doctors">
+                <i data-lucide="user-check"></i>
+            </div>
+            <div class="stat-label">
+            Total Doctors
+            </div>
+            <div class="stat-value">
+            127
+            </div>
+            <div class="stat-change">
+            ↑ 8 new this month
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon patients"><i data-lucide="heart-handshake"></i>
+            </div>
+            <div class="stat-label">
+            Total Patients
+            </div>
+            <div class="stat-value">
+            3,542
+            </div>
+            <div class="stat-change">
+            ↑ 342 new this month
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon surgeries"><i data-lucide="scissors"></i>
+            </div>
+            <div class="stat-label">
+            Scheduled Surgeries
+            </div>
+            <div class="stat-value">
+            24
+            </div>
+            <div class="stat-change">
+            ↑ 6 this week
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- Doctors Section -->
+        <div class="content-section" id="doctors-section">
+        <h2 class="section-title">Manage Doctors</h2>
+        <div class="placeholder-content">
+            <i data-lucide="stethoscope" style="width: 48px; height: 48px; margin: 0 auto 16px; display: block; color: #1a8a6e;"></i>
+            <p>Doctor management interface coming soon</p>
+        </div>
+        </div>
+        <!-- Patients Section -->
+        <div class="content-section" id="patients-section">
+        <h2 class="section-title">Manage Patients</h2>
+        <div class="placeholder-content">
+            <i data-lucide="users" style="width: 48px; height: 48px; margin: 0 auto 16px; display: block; color: #2c7da0;"></i>
+            <p>Patient management interface coming soon</p>
+        </div>
+        </div>
+        
+        <!-- Schedule Section -->
+        <div class="content-section" id="schedule-section">
+        <h2 class="section-title">Operation Schedule</h2>
+        <div class="placeholder-content">
+            <i data-lucide="calendar" style="width: 48px; height: 48px; margin: 0 auto 16px; display: block; color: #d4a843;"></i>
+            <p>Operation schedule coming soon</p>
+        </div>
+        </div>
+        </div>
+   </main>
+  </div>
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+      // Navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.content-section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const page = link.dataset.page;
+        
+        // Update active nav link
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        // Show corresponding section
+        sections.forEach(section => section.classList.remove('active'));
+        document.getElementById(`${page}-section`).classList.add('active');
+
+        // Close sidebar on mobile
+        document.getElementById('sidebar').classList.remove('open');
+      });
+    });
+
+    const doctorPage=document.getElementById('doctor-page');
+    doctorPage.addEventListener('click',()=>{
+        window.location.href="http://127.0.0.1:5500/views/admin/manageDoctors.html";
+    })
+
+    const patientSection=document.getElementById('patient-page');
+    patientSection.addEventListener("click",()=>{
+        window.location.href='http://127.0.0.1:5500/views/admin/patients.html'
+    })
+
+    const scheduleSection=document.getElementById('schedule-page');
+    scheduleSection.addEventListener("click",()=>{
+        window.location.href='http://127.0.0.1:5500/views/admin/operationSchedule.html'
+    })
+
+    const logOutBtn=document.getElementById("logoutBtn");
+    logOutBtn.addEventListener("click",()=>{
+        window.location.href='http://127.0.0.1:5500/../../html/login.html'
+    })
+  </script>
+</body>
+</html>

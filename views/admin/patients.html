@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" style="height:100%">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Patients</title>
+  <link href="../../css/patient.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;family=Merriweather:wght@300;400;700&amp;display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+ </head>
+ <body style="height:100%">
+  <div class="app-wrapper">
+   <header class="page-header">
+    <h1>Manage Patients</h1>
+    <p class="tagline">Keep track of all patient information</p>
+    <div class="accent-line"></div>
+   </header>
+   <div class="main-content">
+    <!-- Add Patient Form -->
+    <div class="form-card">
+     <h2>Add New Patient</h2>
+
+
+     <form id="patientForm" class="form-grid" method="post" novalidate onsubmit="addPatient(event)">
+      <div class="field-group">
+       <label for="patientName">Patient Name</label> 
+       <input type="text" id="patientName" placeholder="John Doe" autocomplete="off"> 
+       <span class="error-text" id="nameError"></span>
+      </div>
+      <div class="field-group">
+       <label for="age">Age</label> 
+       <input type="number" id="age" placeholder="35" min="0" max="150" autocomplete="off"> 
+       <span class="error-text" id="ageError"></span>
+      </div>
+      <div class="field-group">
+      <label for="gender">Gender</label> 
+      <select id="gender"> 
+        <option value="">Select Gender</option> 
+        <option value="male">Male</option> 
+        <option value="female">Female</option> 
+        <option value="other">Other</option> 
+      </select> 
+      <span class="error-text" id="genderError"></span>
+      </div>
+
+      <div class="field-group">
+       <label for="contact">Contact Number</label> 
+       <input type="tel" id="contact" placeholder="+1 555-123-4567" autocomplete="off"> 
+       <span class="error-text" id="contactError"></span>
+      </div>
+      <div class="field-group" style="grid-column: 1 / -1;">
+       <label for="disease">Disease / Problem</label> 
+       <input type="text" id="disease" placeholder="E.g., Hypertension, Diabetes, Asthma" autocomplete="off"> 
+       <span class="error-text" id="diseaseError"></span>
+      </div>
+      
+      <button class="btn-add" id="submitBtn" onclick="updatePatient()">Add Patient</button>
+     </form>
+    </div>
+    
+    <!-- Patients Table -->
+    <div class="table-card">
+     <div class="table-header-bar">
+      <h2>Patient Directory</h2>
+      <span class="patient-count" id="patientCount">0 patients</span>
+     </div>
+     <div class="table-scroll">
+      <table id="patientsTable">
+       <thead>
+        <tr>
+         <th>Patient Name</th>
+         <th>Age</th>
+         <th>Gender</th>
+         <th>Disease / Problem</th>
+         <th>Contact</th>
+         <th>Actions</th>
+        </tr>
+       </thead>
+       <tbody id="patientsBody"></tbody>
+      </table>
+     </div>
+     <div class="empty-state" id="emptyState">
+      <div class="empty-icon">
+       🏥
+      </div>
+      <p>No patients added yet.<br>
+        Use the form above to add your first patient.</p>
+     </div>
+    </div>
+   </div>
+  </div>
+  
+  <!-- Delete Confirmation -->
+  <div class="confirm-overlay" id="confirmOverlay">
+   <div class="confirm-box">
+    <h3>Delete Patient?</h3>
+    <p id="confirmText">This action cannot be undone.</p>
+    <div class="confirm-actions">
+     <button class="btn-confirm-del" id="confirmDelBtn">Delete</button> 
+     <button class="btn-confirm-cancel" id="confirmCancelBtn">Cancel</button>
+    </div>
+   </div>
+  </div><!-- Toast -->
+  <div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="../../javascript/patient.js"></script>
+</body>
+</html>

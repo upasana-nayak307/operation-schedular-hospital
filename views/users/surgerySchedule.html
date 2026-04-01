@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" style="height:100%">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surgery Schedule</title>
+  <link href="../../css/userSurgery.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+ </head>
+ <body style="height:100%">
+  <div class="app-wrapper">
+   <header class="page-header">
+    <h1>Surgery Schedule</h1>
+    <p class="subtitle">View all scheduled surgeries</p>
+    <div class="accent-line"></div>
+   </header>
+   <div class="main-content">
+    <div class="table-container" id="tableContainer">
+     <div class="table-wrapper">
+      <table id="surgeriesTable">
+       <thead>
+        <tr>
+         <th>Surgery Date</th>
+         <th>OT Number</th>
+         <th>Doctor Name</th>
+         <th>Assistant Surgeon</th>
+         <th>Remarks</th>
+        </tr>
+       </thead>
+       <tbody id="surgeriesBody">
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="empty-state" id="emptyState" style="display: none;">
+     <div class="empty-icon">
+      🏥
+     </div>
+     <p>No surgeries scheduled at the moment.</p>
+    </div>
+   </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="../../javascript/schedule.js"></script>
+</body>
+</html>

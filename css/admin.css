@@ -1,0 +1,348 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; width: 100%; }
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0b1a2b;
+    color: #e8edf3;
+}
+
+.dashboard-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: rgba(15, 30, 50, 0.9);
+    border-right: 1px solid rgba(26, 138, 110, 0.15);
+    padding: 24px 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    padding: 0 8px;
+}
+
+.sidebar-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1a8a6e, #14715a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sidebar-icon i {
+    width: 20px;
+    height: 20px;
+    color: white;
+}
+
+.sidebar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+}
+
+.sidebar-nav {
+    flex: 1;
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 8px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 12px;
+    color: #9ab0c8;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;
+    text-align: left;
+}
+
+.nav-link:hover {
+    color: #1a8a6e;
+    background: rgba(26, 138, 110, 0.1);
+}
+
+.nav-link.active {
+    color: white;
+    background: linear-gradient(135deg, rgba(26, 138, 110, 0.2), rgba(26, 138, 110, 0.1));
+    border-left: 3px solid #1a8a6e;
+    padding-left: 9px;
+}
+
+.nav-link i {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.nav-divider {
+    height: 1px;
+    background: rgba(26, 138, 110, 0.1);
+    margin: 16px 0;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 12px;
+    color: #e05260;
+    border: none;
+    background: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;
+    text-align: left;
+    margin-top: auto;
+}
+
+.logout-btn:hover {
+    background: rgba(224, 82, 96, 0.1);
+}
+
+.logout-btn i {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dashboard-header {
+    padding: 32px 40px;
+    background: rgba(15, 30, 50, 0.7);
+    border-bottom: 1px solid rgba(26, 138, 110, 0.1);
+}
+
+.header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.header-subtitle {
+    font-size: 14px;
+    color: #9ab0c8;
+}
+
+.dashboard-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 32px 40px;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: rgba(15, 30, 50, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(26, 138, 110, 0.15);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    animation: slideUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(16px); }
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+
+.stat-card:hover {
+    border-color: rgba(26, 138, 110, 0.4);
+    box-shadow: 0 12px 32px rgba(26, 138, 110, 0.15);
+    transform: translateY(-4px);
+}
+
+.stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.stat-icon.doctors {
+    background: rgba(26, 138, 110, 0.15);
+}
+
+.stat-icon.patients {
+    background: rgba(44, 125, 160, 0.15);
+}
+
+.stat-icon.surgeries {
+    background: rgba(212, 168, 67, 0.15);
+}
+
+.stat-icon i {
+    width: 28px;
+    height: 28px;
+}
+
+.stat-icon.doctors i { color: #1a8a6e; }
+.stat-icon.patients i { color: #2c7da0; }
+.stat-icon.surgeries i { color: #d4a843; }
+
+.stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #9ab0c8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+}
+
+.stat-change {
+    font-size: 12px;
+    color: #1a8a6e;
+    margin-top: 12px;
+}
+
+/* Content Sections */
+.content-section {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.content-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.placeholder-content {
+    background: rgba(15, 30, 50, 0.7);
+    border: 1px solid rgba(26, 138, 110, 0.15);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    color: #9ab0c8;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(26, 138, 110, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(26, 138, 110, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+    width: 250px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    }
+
+    .sidebar.open {
+    transform: translateX(0);
+    }
+
+    .dashboard-body {
+    padding: 24px 20px;
+    }
+
+    .dashboard-header {
+    padding: 24px 20px;
+    }
+
+    .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+    }
+
+    .header-title {
+    font-size: 24px;
+    }
+}
+body { 
+    box-sizing: border-box; 
+}

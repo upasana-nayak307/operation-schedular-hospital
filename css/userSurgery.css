@@ -1,0 +1,268 @@
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { height: 100%; }
+body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #2c3e50;
+    overflow-y: auto;
+}
+
+.app-wrapper {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 40px 24px;
+    overflow-y: auto;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeSlideDown 0.6s ease-out;
+}
+
+.page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #1a3a52;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.page-header .subtitle {
+    font-size: 1rem;
+    color: #546e7a;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    margin-bottom: 20px;
+}
+
+.accent-line {
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+    margin: 0 auto;
+    border-radius: 3px;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ── Surgery Count ── */
+.surgery-count {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    margin-bottom: 28px;
+    font-weight: 500;
+}
+
+/* ── Table Container ── */
+.table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    animation: fadeSlideUp 0.6s ease-out;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+th {
+    padding: 18px 20px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ecf0f1;
+    transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+td {
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    color: #34495e;
+}
+
+/* ── Cell Styling ── */
+.date-cell {
+    font-weight: 600;
+    color: #1a3a52;
+}
+
+.ot-number {
+    background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #2c3e50;
+    display: inline-block;
+    font-size: 0.85rem;
+}
+
+.doctor-name {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.assistant-name {
+    color: #34495e;
+}
+
+.remarks-text {
+    color: #7f8c8d;
+    font-style: italic;
+    max-width: 300px;
+    white-space: normal;
+}
+
+/* ── Empty State ── */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #95a5a6;
+    background: white;
+    border-radius: 12px;
+}
+
+.empty-state .empty-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #7f8c8d;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .app-wrapper {
+    padding: 32px 16px;
+    }
+
+    .page-header h1 {
+    font-size: 2.2rem;
+    }
+
+    .page-header .subtitle {
+    font-size: 0.95rem;
+    }
+
+    th {
+    padding: 14px 12px;
+    font-size: 0.85rem;
+    }
+
+    td {
+    padding: 12px;
+    font-size: 0.85rem;
+    }
+
+    .ot-number {
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    }
+
+    .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-wrapper {
+    padding: 24px 12px;
+    }
+
+    .page-header h1 {
+    font-size: 1.8rem;
+    }
+
+    .accent-line {
+    width: 60px;
+    }
+
+    th {
+    padding: 12px 8px;
+    font-size: 0.8rem;
+    }
+
+    td {
+    padding: 10px 8px;
+    font-size: 0.8rem;
+    }
+
+    .remarks-text {
+    max-width: 150px;
+    }
+}
+
+/* ── Animations ── */
+@keyframes fadeSlideUp {
+    from {
+    opacity: 0;
+    transform: translateY(20px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+@keyframes fadeSlideDown {
+    from {
+    opacity: 0;
+    transform: translateY(-10px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+.table-row {
+    animation: fadeSlideUp 0.4s ease-out backwards;
+}
+
+.table-row:nth-child(1) { animation-delay: 0.05s; }
+.table-row:nth-child(2) { animation-delay: 0.1s; }
+.table-row:nth-child(3) { animation-delay: 0.15s; }
+.table-row:nth-child(4) { animation-delay: 0.2s; }
+.table-row:nth-child(5) { animation-delay: 0.25s; }
+body { 
+    box-sizing: border-box; 
+}
