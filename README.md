@@ -37,20 +37,20 @@ The project follows MVC Architecture and clean modular coding standards.
 
 ### 🚀 Features
 👨‍⚕️ Admin Features<br>
-    - Admin login
-    - Add / Manage Doctors
-    - Add / Manage Patients
-    - Create surgery/operation schedules
-    - View all schedules
-    - Dashboard overview
+    - Admin login<br>
+    - Add / Manage Doctors<br>
+    - Add / Manage Patients<br>
+    - Create surgery/operation schedules<br>
+    - View all schedules<br>
+    - Dashboard overview<br>
 👩‍⚕️ User (Doctor) Features<br>
-    - Doctor login
-    - View surgery schedule
-    - View assigned patients
+    - Doctor login<br>
+    - View surgery schedule<br>
+    - View assigned patients<br>
 🔐 Security<br>
-    - Authentication with middleware
-    - Password encryption
-    - Role-based access
+    - Authentication with middleware<br>
+    - Password encryption<br>
+    - Role-based access<br>
 
 ---
 
@@ -63,18 +63,18 @@ Clean folder organization
 
 ### 🛠 Tech Stack
 Frontend:<br>
-    HTML<br>
-    CSS<br>
-    JavaScript<br>
+    - HTML<br>
+    - CSS<br>
+    - JavaScript<br>
 Backend:<br>
-    Node.js<br>
-    Express.js<br>
+    - Node.js<br>
+    - Express.js<br>
 Database:<br>
-    MongoDB (Mongoose ORM)<br>
+    - MongoDB (Mongoose ORM)<br>
 Tools:<br>
-    Nodemon<br>
-    JWT Authentication<br>
-    bcrypt.js<br>
+    - Nodemon<br>
+    - JWT Authentication<br>
+    - bcrypt.js<br>
 
 ---
 
@@ -150,7 +150,7 @@ operation-schedular-hospital/
 ### 🔄 System Workflow
 ➤ 1. User Authentication
     Register → Login → Role-based redirect<br>
-    Uses JWT tokens + middleware
+    Uses JWT tokens + middleware<br>
 ➤ 2. Admin Panel<br>
     Manage Doctors<br>
     Manage Patients<br>
